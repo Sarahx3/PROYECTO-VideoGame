@@ -31,10 +31,10 @@ public:
 
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;
-        out<<setw(10)<<c.nombre;
-        out<<setw(7)<<c.ubicacionX;
-        out<<setw(7)<<c.ubicacionY;
-        out<<setw(7)<<c.puntuacion;
+        out<<setw(12)<<c.nombre;
+        out<<setw(12)<<c.ubicacionX;
+        out<<setw(12)<<c.ubicacionY;
+        out<<setw(12)<<c.puntuacion;
         cout<<endl;
         return out;
     }
