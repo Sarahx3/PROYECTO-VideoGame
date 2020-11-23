@@ -137,7 +137,51 @@ int main()
         }
 
         else if (op == "10"){//modificar
+            string str2;
+            Civilizacion aux;
 
+            cout<< "Civilizacion a modificar: ";
+            cin>> str2; cin.ignore();
+            aux.setNombre(str2);
+
+            Civilizacion *ptr = game.buscar(aux);
+            if(ptr ==nullptr){
+                cout << "no se encontro la civilizacion" << endl;
+            }
+            else{
+                cout << endl;
+                cout<<"Civilizacion encontrada: " << endl;
+                cout<< *ptr << endl;
+                string mystr; float aux; double aux1;
+                string opc;
+                cout<< endl;
+                cout<< "1) Nombre" << endl;
+                cout<< "2) Posicion X" << endl;
+                cout<< "3) Posicion Y" << endl;
+                cout<< "4) Puntuacion" << endl;
+                cout << "Modificar:  ";
+                getline(cin, opc);
+                if (opc == "1"){
+                    cout <<"Nombre nuevo: ";
+                    getline(cin,mystr);
+                    ptr->setNombre(mystr);
+                }
+                else if(opc == "2"){
+                    cout <<"Posicion X nueva: ";
+                    cin >> aux;
+                    ptr->setUbicacionX(aux);
+                }
+                else if(opc == "3"){
+                    cout <<"Posicion Y nueva: ";
+                    cin >> aux;
+                    ptr->setUbicacionY(aux);
+                }
+                else if(opc == "4"){
+                    cout <<"Puntuacion nueva: ";
+                    cin >> aux1;
+                    ptr->setPuntuacion(aux1);
+                }
+            }
         }
 
         else if(op == "11"){//mostrar
