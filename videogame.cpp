@@ -1,5 +1,7 @@
 #include "videogame.h"
 
+VideoGame::VideoGame() : total(0){}
+
 void VideoGame::setUsuario(const string &v){
     usuario = v;
 }
@@ -28,10 +30,12 @@ void VideoGame::mostrar(){
 
 void VideoGame::agregar(const Civilizacion &c){
     civilizaciones.push_back(c);
+    total++;
 }
 
 void VideoGame::insertar(const Civilizacion &c, size_t pos){
     civilizaciones.insert(civilizaciones.begin()+pos, c);
+    total++;
 }
 
 void VideoGame::inicializar(const Civilizacion &c, size_t n){
@@ -83,5 +87,20 @@ void VideoGame::eliminar(const Civilizacion &c){
     else{
         civilizaciones.erase(it);
     }
+    total--;
 }
 
+Civilizacion* VideoGame::buscar(const Civilizacion &c){
+    auto it = find(civilizaciones.begin(),civilizaciones.end(),c);
+
+    if(it == civilizaciones.end()){
+        return nullptr;
+    }
+    else{
+        return &(*it);
+    }
+}
+
+size_t VideoGame::Total(){
+    return total;
+}

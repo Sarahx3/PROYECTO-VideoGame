@@ -11,8 +11,10 @@ class VideoGame{
     private:
     string usuario;
     vector<Civilizacion> civilizaciones;
+    size_t total;
 
     public:
+    VideoGame();
 
     void setUsuario(const string &v);
     string getUsuario();
@@ -32,6 +34,8 @@ class VideoGame{
     void ordenarPuntuacion();
 
     void eliminar(const Civilizacion &c);
+    Civilizacion* buscar(const Civilizacion &c);
+    size_t Total();
 
 };
 
