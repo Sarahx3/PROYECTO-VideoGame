@@ -38,10 +38,6 @@ void VideoGame::inicializar(const Civilizacion &c, size_t n){
     civilizaciones = vector<Civilizacion>(n,c);
 }
 
-// void VideoGame::eliminar(const string &v){
-//     civilizaciones.erase(v);
-// }
-
 Civilizacion VideoGame::front(){
     return civilizaciones.front();
 }
@@ -49,3 +45,43 @@ Civilizacion VideoGame::front(){
 Civilizacion VideoGame::back(){
     return civilizaciones.back();
 }
+
+void VideoGame::ordenarNombre(){
+    sort(civilizaciones.begin(), civilizaciones.end(),
+    [](Civilizacion c1, Civilizacion c2){
+        return c1.getNombre() < c2.getNombre();
+    });
+}
+
+void VideoGame::ordenarX(){
+    sort(civilizaciones.begin(), civilizaciones.end(),
+    [](Civilizacion c1, Civilizacion c2){
+        return c1.getUbicacionX() < c2.getUbicacionX();
+    });
+}
+
+void VideoGame::ordenarY(){
+    sort(civilizaciones.begin(), civilizaciones.end(),
+    [](Civilizacion c1, Civilizacion c2){
+        return c1.getUbicacionY() < c2.getUbicacionY();
+    });
+}
+
+void VideoGame::ordenarPuntuacion(){
+    sort(civilizaciones.begin(), civilizaciones.end(),
+    [](Civilizacion c1, Civilizacion c2){
+        return c1.getPuntuacion() < c2.getPuntuacion();
+    });
+}
+
+void VideoGame::eliminar(const Civilizacion &c){
+    auto it = find(civilizaciones.begin(), civilizaciones.end(),c);
+
+    if (it == civilizaciones.end()){
+        cout<<"cancion no valida para eliminar"<<endl;
+    }
+    else{
+        civilizaciones.erase(it);
+    }
+}
+

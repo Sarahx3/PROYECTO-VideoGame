@@ -6,7 +6,10 @@ int main()
 {
     VideoGame game;
     Civilizacion civil;
+    Civilizacion aux;
+    string str;
     cin >> civil;
+    
 
     game.setUsuario("aide");
 
@@ -31,7 +34,15 @@ int main()
     cout<< "primera\n" << game.front();
     cout<< "ultima\n" << game.back();
 
+    game.ordenarX();
+    game.mostrar();
     // game.inicializar(civil,10);
     // game.mostrar();
+
+    cout<<"cancion a eliminar: ";
+    cin>> str;cin.ignore();
+    aux.setNombre(str);
+    game.eliminar(aux);
+    game.mostrar();
     return 0;
 }

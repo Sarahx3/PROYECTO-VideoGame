@@ -51,7 +51,14 @@ public:
         return in;
     }
 
-    //pueden faltar operator ==, ojo aqui
+    bool operator==(const Civilizacion& c)
+    {
+        return nombre == c.nombre;
+    }
+    bool operator==(const Civilizacion& c) const
+    {
+        return nombre == c.nombre;
+    }
 
 };
 #endif

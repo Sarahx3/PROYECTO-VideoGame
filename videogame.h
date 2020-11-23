@@ -23,10 +23,15 @@ class VideoGame{
     void insertar(const Civilizacion &c, size_t pos);
 
     void inicializar(const Civilizacion &c, size_t n);
-    void eliminar(const string &v);
     Civilizacion front();
     Civilizacion back();
     
+    void ordenarNombre();
+    void ordenarX();
+    void ordenarY();
+    void ordenarPuntuacion();
+
+    void eliminar(const Civilizacion &c);
 
 };
 
