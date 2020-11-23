@@ -15,6 +15,7 @@ size_t VideoGame::size(){
 }
 
 void VideoGame::mostrar(){
+    cout<<endl;
     cout<< left;
     cout<< setw(12)<< "Nombre";
     cout<< setw(12)<<"Ubicacion X";
@@ -40,6 +41,7 @@ void VideoGame::insertar(const Civilizacion &c, size_t pos){
 
 void VideoGame::inicializar(const Civilizacion &c, size_t n){
     civilizaciones = vector<Civilizacion>(n,c);
+    total= n;
 }
 
 Civilizacion VideoGame::front(){
@@ -71,10 +73,10 @@ void VideoGame::ordenarY(){
     });
 }
 
-void VideoGame::ordenarPuntuacion(){
+void VideoGame::ordenarPuntuacion(){//descendente
     sort(civilizaciones.begin(), civilizaciones.end(),
     [](Civilizacion c1, Civilizacion c2){
-        return c1.getPuntuacion() < c2.getPuntuacion();
+        return c1.getPuntuacion() > c2.getPuntuacion();
     });
 }
 
@@ -82,12 +84,13 @@ void VideoGame::eliminar(const Civilizacion &c){
     auto it = find(civilizaciones.begin(), civilizaciones.end(),c);
 
     if (it == civilizaciones.end()){
-        cout<<"cancion no valida para eliminar"<<endl;
+        cout<<"civilizacion no valida para eliminar"<<endl;
     }
     else{
         civilizaciones.erase(it);
+        total--;
     }
-    total--;
+    
 }
 
 Civilizacion* VideoGame::buscar(const Civilizacion &c){
