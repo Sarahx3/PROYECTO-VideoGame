@@ -6,7 +6,7 @@ void menu(Civilizacion *ptr){
                     cout<< endl;
                     cout<< "1) Agregar aldeano" << endl;//
                     cout<< "2) Eliminar aldeano" << endl;//
-                    cout<< "3) Clasificar aldeanos" << endl;
+                    cout<< "3) Clasificar aldeanos" << endl;//
                     cout<< "4) Buscar aldeano" << endl;
                     cout<< "5) Modificar aldeano" << endl;
                     cout<< "6) Mostrar aldeanos" << endl;//
@@ -57,6 +57,22 @@ void menu(Civilizacion *ptr){
                     }
 
                     if(opc == "3"){//clasificar
+                        string opc1;
+                        cout<<endl;
+                        cout<< "1) Nombre" << endl;
+                        cout<< "2) Edad" << endl;
+                        cout<< "3) Salud" << endl;
+                        cout<< "Clasificar por: ";
+                        getline(cin,opc1);
+                        if(opc1 == "1"){
+                            ptr->ordenarNombre();
+                        }
+                        if(opc1 == "2"){
+                            ptr->ordenarEdad();
+                        }
+                        if(opc1 == "3"){
+                            ptr->ordenarSalud();
+                        }
 
                     }
 

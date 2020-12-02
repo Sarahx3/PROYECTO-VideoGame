@@ -87,3 +87,19 @@ void Civilizacion::eliminarSalud(size_t x){
 void Civilizacion::eliminarEdad(){
     aldeanos.remove_if([](const Aldeano &a){ return a.getEdad() >= 60;});
 }
+
+void Civilizacion::ordenarNombre(){
+    aldeanos.sort();
+}
+
+void Civilizacion::ordenarEdad(){
+    aldeanos.sort([](const Aldeano &a1,const Aldeano &a2){
+        return a1.getEdad() > a2.getEdad();
+    });
+}
+
+void Civilizacion::ordenarSalud(){
+    aldeanos.sort([](const Aldeano &a1,const Aldeano &a2){
+        return a1.getSalud() > a2.getSalud();
+    });
+}

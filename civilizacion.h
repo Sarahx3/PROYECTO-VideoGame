@@ -34,6 +34,7 @@ public:
     double getUbicacionY();
     float getPuntuacion();
 
+    //agregar
     void agregarInicio(const Aldeano &a);
     void agregarFinal(const Aldeano &a);
     void mostrarAldeanos();
@@ -42,6 +43,11 @@ public:
     void eliminarNombre(const string &nombre);
     void eliminarSalud(size_t x);
     void eliminarEdad();
+
+    //ordenar
+    void ordenarNombre();
+    void ordenarEdad();
+    void ordenarSalud();
 
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;
