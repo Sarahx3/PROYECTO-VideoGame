@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <list>
 #include "aldeano.h"
 
 using namespace std;
@@ -13,6 +14,9 @@ private:
     double ubicacionX;
     double ubicacionY;
     float puntuacion;
+
+    list<Aldeano> aldeanos;
+
 public:
     Civilizacion();
     Civilizacion(const string &nombre,
@@ -29,6 +33,11 @@ public:
     double getUbicacionX();
     double getUbicacionY();
     float getPuntuacion();
+
+    void agregarInicio(const Aldeano &a);
+    void agregarFinal(const Aldeano &a);
+    void mostrarAldeanos();
+    //FALTA DESDE ELIMINAR
 
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;

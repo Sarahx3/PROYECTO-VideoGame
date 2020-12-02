@@ -138,6 +138,42 @@ int main()
                 cout << endl;
                 cout<<"Civilizacion encontrada: " << endl;
                 cout<< *ptr << endl;
+                string opc;
+                while(true){
+                    cout<< endl;
+                    cout<< "1) Agregar aldeano" << endl;
+                    cout<< "2) Eliminar aldeano" << endl;
+                    cout<< "3) Clasificar aldeanos" << endl;
+                    cout<< "4) Buscar aldeano" << endl;
+                    cout<< "5) Modificar aldeano" << endl;
+                    cout<< "6) Mostrar aldeanos" << endl;
+                    cout<< "0) Atras" << endl;
+                    cout << "Opcion:  ";
+                    getline(cin, opc);
+                    if(opc == "1"){
+                        Aldeano aux;
+                        cin >> aux;
+                        string opc1;
+
+                        cout<< "1) Inicio" << endl;
+                        cout<< "2) Final" << endl;
+                        cout<< "Agregar: ";
+                        getline(cin,opc1);
+                        if(opc1 == "1"){
+                            ptr->agregarInicio(aux);
+                        }
+                        if(opc1 == "2"){
+                            ptr->agregarFinal(aux);
+                        }
+                    }
+                    if(opc == "6"){
+                        cout << endl;
+                        ptr->mostrarAldeanos();
+                    }
+                    if(opc == "0"){
+                        break;
+                    }
+                }
             }
         }
 

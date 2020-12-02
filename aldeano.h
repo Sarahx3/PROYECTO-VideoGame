@@ -40,6 +40,18 @@ class Aldeano{
 
         return out;
     }
+
+    friend istream& operator >>(istream &in, Aldeano &a){
+        cout<<"Nombre: ";
+        getline(cin,a.nombre);
+        cout<<"Edad: ";
+        cin>>a.edad; cin.ignore();
+        cout<<"Genero: ";
+        getline(cin,a.genero);
+        cout<<"Salud: ";
+        cin>>a.salud; cin.ignore();
+        return in;
+    }
 };
 
 #endif 

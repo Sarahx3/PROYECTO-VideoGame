@@ -39,3 +39,19 @@ double Civilizacion::getUbicacionY(){
 float Civilizacion::getPuntuacion(){
     return puntuacion;
 }
+
+void Civilizacion::agregarInicio(const Aldeano &a){
+    aldeanos.push_front(a);
+    puntuacion+=100;
+}
+
+void Civilizacion::agregarFinal(const Aldeano &a){
+    aldeanos.push_back(a);
+    puntuacion+=100;
+}
+
+void Civilizacion::mostrarAldeanos(){
+    for(auto it = aldeanos.begin(); it != aldeanos.end(); it++){
+        cout  << *it << endl;
+    }
+}

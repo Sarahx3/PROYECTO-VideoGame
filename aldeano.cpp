@@ -1,5 +1,7 @@
 #include "aldeano.h"
 
+Aldeano::Aldeano(){}
+
 void Aldeano::setNombre(const string &nombre){
     this->nombre = nombre;
 }
