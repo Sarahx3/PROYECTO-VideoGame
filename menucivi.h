@@ -1,6 +1,6 @@
 #include "civilizacion.h"
 
-void menu(Civilizacion *ptr){
+void menu(Civilizacion*ptr){
                 string opc;
                 while(true){
                     cout<< endl;
@@ -77,6 +77,23 @@ void menu(Civilizacion *ptr){
                     }
 
                     if(opc == "4"){//buscar
+                    string str2;
+                    Aldeano aux;
+
+                    cout<< "Aldeano a buscar: ";
+                    getline(cin,str2);
+                    aux.setNombre(str2);
+
+                    Aldeano *ptr1 = ptr->buscar(aux);
+                    if(ptr1 ==nullptr){
+                        cout << "no se encontro el Aldeano" << endl;
+                    }
+                    else{
+                        cout << endl;
+                        cout<<"Aldeano encontrado: " << endl;
+                        cout<< *ptr1<< endl;
+                        
+                    }
 
                     }
 

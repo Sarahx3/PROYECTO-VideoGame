@@ -31,6 +31,15 @@ class Aldeano{
         return nombre < a.getNombre();
     }
 
+    bool operator==(const Aldeano& c)
+    {
+        return nombre == c.nombre;
+    }
+    bool operator==(const Aldeano& c) const
+    {
+        return nombre == c.nombre;
+    }
+
     friend ostream& operator<<(ostream &out, const Aldeano &a){
         out << left;
         out << setw(10) << a.nombre;

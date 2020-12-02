@@ -49,6 +49,8 @@ public:
     void ordenarEdad();
     void ordenarSalud();
 
+    Aldeano* buscar(const Aldeano &c);
+
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;
         out<<setw(12)<<c.nombre;

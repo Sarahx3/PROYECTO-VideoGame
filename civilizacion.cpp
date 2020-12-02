@@ -103,3 +103,14 @@ void Civilizacion::ordenarSalud(){
         return a1.getSalud() > a2.getSalud();
     });
 }
+
+Aldeano* Civilizacion::buscar(const Aldeano &c){
+    for(auto it = aldeanos.begin(); it != aldeanos.end(); it++){
+        Aldeano &a = *it;
+
+        if(c.getNombre() == a.getNombre()){
+            return &(*it);
+        }
+    }
+    return nullptr;
+}
