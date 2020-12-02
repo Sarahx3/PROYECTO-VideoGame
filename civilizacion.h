@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include "aldeano.h"
 
 using namespace std;
 
