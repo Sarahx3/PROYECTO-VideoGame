@@ -29,7 +29,6 @@ int main()
             cout<<"Nombre de Usuario: ";
             getline(cin,str);
             game.setUsuario(str);
-            //cout<<"nombre: "<<game.getUsuario()<<endl;
         } 
 
         else if (op == "2") {//agregar
@@ -76,7 +75,7 @@ int main()
 
         else if (op == "6") {//ultima
             if(game.Total() > 0){
-                cout << "Primera Civilizacion: "<<endl;
+                cout << "Ultima Civilizacion: "<<endl;
                 cout << game.back();
             }
             else{
@@ -86,11 +85,13 @@ int main()
 
         else if (op == "7") {//ordenar
             string opc;
+            while(true){
                 cout<< endl;
                 cout<< "1) Nombre" << endl;
                 cout<< "2) Posicion X" << endl;
                 cout<< "3) Posicion Y" << endl;
                 cout<< "4) Puntuacion" << endl;
+                cout<< "0) Atras" << endl;
                 cout << "Ordenar por:  ";
                 getline(cin, opc);
                 if (opc == "1"){
@@ -105,6 +106,10 @@ int main()
                 else if(opc == "4"){
                     game.ordenarPuntuacion();
                 }
+                else if (opc == "0"){
+                    break;
+                }
+            }
         }
 
         else if (op == "8") {//eliminar
@@ -154,37 +159,45 @@ int main()
                 cout<< *ptr << endl;
                 string mystr; float aux; double aux1;
                 string opc;
-                cout<< endl;
-                cout<< "1) Nombre" << endl;
-                cout<< "2) Posicion X" << endl;
-                cout<< "3) Posicion Y" << endl;
-                cout<< "4) Puntuacion" << endl;
-                cout << "Modificar:  ";
-                getline(cin, opc);
-                if (opc == "1"){
-                    cout <<"Nombre nuevo: ";
-                    getline(cin,mystr);
-                    ptr->setNombre(mystr);
-                }
-                else if(opc == "2"){
-                    cout <<"Posicion X nueva: ";
-                    cin >> aux;
-                    ptr->setUbicacionX(aux);
-                }
-                else if(opc == "3"){
-                    cout <<"Posicion Y nueva: ";
-                    cin >> aux;
-                    ptr->setUbicacionY(aux);
-                }
-                else if(opc == "4"){
-                    cout <<"Puntuacion nueva: ";
-                    cin >> aux1;
-                    ptr->setPuntuacion(aux1);
+                while(true){
+                    cout<< endl;
+                    cout<< "1) Nombre" << endl;
+                    cout<< "2) Posicion X" << endl;
+                    cout<< "3) Posicion Y" << endl;
+                    cout<< "4) Puntuacion" << endl;
+                    cout<< "0) Atras" << endl;
+                    cout << "Modificar:  ";
+                    getline(cin, opc);
+                    if (opc == "1"){
+                        cout <<"Nombre nuevo: ";
+                        getline(cin,mystr);
+                        ptr->setNombre(mystr);
+                    }
+                    else if(opc == "2"){
+                        cout <<"Posicion X nueva: ";
+                        cin >> aux; cin.ignore();
+                        ptr->setUbicacionX(aux);
+                    }
+                    else if(opc == "3"){
+                        cout <<"Posicion Y nueva: ";
+                        cin >> aux; cin.ignore();
+                        ptr->setUbicacionY(aux);
+                    }
+                    else if(opc == "4"){
+                        cout <<"Puntuacion nueva: ";
+                        cin >> aux1; cin.ignore();
+                        ptr->setPuntuacion(aux1);
+                    }
+                    else if (opc == "0"){
+                        break;
+                    }
                 }
             }
         }
 
         else if(op == "11"){//mostrar
+            cout<< endl;
+            cout<<"Nombre usuario: "<<game.getUsuario()<<endl;
             game.mostrar();
             cout<<"Total: "<<game.Total()<<endl;
         }
