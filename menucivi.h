@@ -7,7 +7,7 @@ void menu(Civilizacion*ptr){
                     cout<< "1) Agregar aldeano" << endl;//
                     cout<< "2) Eliminar aldeano" << endl;//
                     cout<< "3) Clasificar aldeanos" << endl;//
-                    cout<< "4) Buscar aldeano" << endl;
+                    cout<< "4) Buscar aldeano" << endl;//
                     cout<< "5) Modificar aldeano" << endl;
                     cout<< "6) Mostrar aldeanos" << endl;//
                     cout<< "0) Atras" << endl;//
@@ -77,27 +77,71 @@ void menu(Civilizacion*ptr){
                     }
 
                     if(opc == "4"){//buscar
-                    string str2;
-                    Aldeano aux;
+                        string str2;
+                        Aldeano aux;
 
-                    cout<< "Aldeano a buscar: ";
-                    getline(cin,str2);
-                    aux.setNombre(str2);
+                        cout<< "Aldeano a buscar: ";
+                        getline(cin,str2);
+                        aux.setNombre(str2);
 
-                    Aldeano *ptr1 = ptr->buscar(aux);
-                    if(ptr1 ==nullptr){
-                        cout << "no se encontro el Aldeano" << endl;
-                    }
-                    else{
-                        cout << endl;
-                        cout<<"Aldeano encontrado: " << endl;
-                        cout<< *ptr1<< endl;
-                        
-                    }
-
+                        Aldeano *ptr1 = ptr->buscar(aux);
+                        if(ptr1 ==nullptr){
+                            cout << "no se encontro el Aldeano" << endl;
+                        }
+                        else{
+                            cout << endl;
+                            cout<<"Aldeano encontrado: " << endl;
+                            cout<< *ptr1<< endl;
+                            
+                        }
                     }
 
                     if(opc == "5"){//modificar
+                        string str2;
+                        Aldeano aux;
+
+                        cout<< "Aldeano a modificar: ";
+                        getline(cin,str2);
+                        aux.setNombre(str2);
+
+                        Aldeano *ptr1 = ptr->buscar(aux);
+                        if(ptr1 ==nullptr){
+                            cout << "no se encontro el Aldeano" << endl;
+                        }
+                        else{
+                            cout << endl;
+                            cout<<"Aldeano encontrado: " << endl;
+                            cout<< *ptr1<< endl;
+                            cout<<endl;
+                            string opc1,mystr;
+                            size_t edad; float salud;
+                            cout<< "1) Nombre" << endl;
+                            cout<< "2) Edad" << endl;
+                            cout<< "3) Genero" << endl;
+                            cout<< "4) Salud" << endl;
+                            cout << "Modificar:  ";
+                            getline(cin, opc1);
+                            if (opc1 == "1"){
+                                cout <<"Nombre nuevo: ";
+                                getline(cin,mystr);
+                                ptr1->setNombre(mystr);
+                            }
+                            else if(opc1 == "2"){
+                                cout <<"Edad nueva: ";
+                                cin >> edad; cin.ignore();
+                                ptr1->setEdad(edad);
+                            }
+                            else if(opc1 == "3"){
+                                cout <<"Genero nuevo: ";
+                                getline(cin,mystr);
+                                ptr1->setGenero(mystr);
+                            }
+                            else if(opc1 == "4"){
+                                cout <<"Salud nueva: ";
+                                cin >> salud; cin.ignore();
+                                ptr1->setEdad(salud);
+                            }
+                        }
 
                     }
 
