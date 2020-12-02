@@ -6,7 +6,7 @@ int main()
 {
     VideoGame game;
     string op;
-
+    
     while (true){
         cout<<endl;
         cout << "1) Nombre de Usuario" << endl;//
