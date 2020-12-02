@@ -51,7 +51,39 @@ void Civilizacion::agregarFinal(const Aldeano &a){
 }
 
 void Civilizacion::mostrarAldeanos(){
+    cout<<endl;
+    cout<< left;
+    cout<< setw(10)<< "Nombre";
+    cout<< setw(5)<<"Edad";
+    cout<< setw(12)<<"Genero";
+    cout<< setw(10)<<"Salud";
+    cout<<endl;
+    cout<< internal;
     for(auto it = aldeanos.begin(); it != aldeanos.end(); it++){
         cout  << *it << endl;
     }
+}
+
+void Civilizacion::eliminarNombre(const string &nombre){
+    int x = 0;
+    for(auto it = aldeanos.begin(); it != aldeanos.end(); it++){
+        Aldeano &a = *it;
+
+        if(nombre == a.getNombre()){
+            aldeanos.erase(it);
+            x = 1;
+            break;
+        }
+    }
+    if(x == 0){
+        cout<<"aldeano no valido para eliminar"<<endl;
+    }
+}
+
+void Civilizacion::eliminarSalud(size_t x){
+    aldeanos.remove_if([x](const Aldeano &a){ return a.getSalud() < x;});
+}
+
+void Civilizacion::eliminarEdad(){
+    aldeanos.remove_if([](const Aldeano &a){ return a.getEdad() >= 60;});
 }

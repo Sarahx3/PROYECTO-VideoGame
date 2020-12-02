@@ -37,7 +37,11 @@ public:
     void agregarInicio(const Aldeano &a);
     void agregarFinal(const Aldeano &a);
     void mostrarAldeanos();
-    //FALTA DESDE ELIMINAR
+    
+    //eliminar
+    void eliminarNombre(const string &nombre);
+    void eliminarSalud(size_t x);
+    void eliminarEdad();
 
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;
