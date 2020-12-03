@@ -37,6 +37,9 @@ class VideoGame{
     Civilizacion* buscar(const Civilizacion &c);
     size_t Total();
 
+    void respaldar();
+    void recuperar();
+
 };
 
 #endif //VIDEOGAME_H

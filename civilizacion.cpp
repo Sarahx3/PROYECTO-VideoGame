@@ -114,3 +114,52 @@ Aldeano* Civilizacion::buscar(const Aldeano &c){
     }
     return nullptr;
 }
+
+void Civilizacion::respaldar_aldeanos()
+{
+    ofstream aldeanos (getNombre() + ".txt", ios::out);
+    
+    for (auto it = this->aldeanos.begin(); it != this->aldeanos.end(); ++it) {
+        Aldeano &aldeano = *it; 
+        aldeanos << aldeano.getNombre() << endl;
+        aldeanos << aldeano.getEdad()   << endl;
+        aldeanos << aldeano.getGenero() << endl;
+        aldeanos << aldeano.getSalud()  << endl;
+    }
+    aldeanos.close();
+}
+
+void Civilizacion::recuperar_aldeanos(string civ){
+    ifstream archivo (civ);
+    if(archivo.is_open()){
+        string temp;
+        size_t edad;
+        float salud;
+        string aux;
+        Aldeano a;
+        while(true){
+            getline(archivo,temp);//nombre
+            if(archivo.eof()){
+                break;
+            }
+            aux = temp;
+            a.setNombre(aux);
+
+            getline(archivo,temp);//edad
+            edad =stoi(temp);
+            a.setEdad(edad);
+
+            getline(archivo,temp);//genero
+            aux = temp;
+            a.setGenero(aux);
+
+            getline(archivo,temp);//salud
+            salud = stof(temp);
+            a.setSalud(salud);
+
+            agregarFinal(a);
+
+        }
+    }
+    archivo.close();
+}

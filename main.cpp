@@ -16,11 +16,13 @@ int main()
         cout << "4) Crear civilizaciones(inicializar)" << endl;//
         cout << "5) Primera Civilizacion" << endl;//
         cout << "6) Ultima Civilizacion" << endl;//
-        cout << "7) Ordenar" << endl;//
-        cout << "8) Eliminar" << endl;//
-        cout << "9) Buscar" << endl;//
-        cout << "10) Modificar" << endl;
+        cout << "7) Ordenar Civilizaciones" << endl;//
+        cout << "8) Eliminar Civilizacion" << endl;//
+        cout << "9) Buscar Civilizacion" << endl;//
+        cout << "10) Modificar Civilizacion" << endl;
         cout << "11) Resumen" << endl;//
+        cout << "12) Respaldar" << endl;
+        cout << "13) Recuperar" << endl;
         cout << "0) Salir" << endl;//
         cout << "Opcion: ";
         getline(cin, op);
@@ -86,7 +88,6 @@ int main()
 
         else if (op == "7") {//ordenar
             string opc;
-            while(true){
                 cout<< endl;
                 cout<< "1) Nombre" << endl;
                 cout<< "2) Posicion X" << endl;
@@ -107,10 +108,7 @@ int main()
                 else if(opc == "4"){
                     game.ordenarPuntuacion();
                 }
-                else if (opc == "0"){
-                    break;
-                }
-            }
+            
         }
 
         else if (op == "8") {//eliminar
@@ -202,6 +200,14 @@ int main()
             cout<<"Nombre usuario: "<<game.getUsuario()<<endl;
             game.mostrar();
             cout<<"Total: "<<game.Total()<<endl;
+        }
+
+        else if (op == "12"){//respalda
+            game.respaldar();
+        }
+
+        else if (op == "13"){//recupera
+            game.recuperar();
         }
 
         else if (op == "0"){//salir

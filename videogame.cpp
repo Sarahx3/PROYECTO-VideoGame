@@ -107,3 +107,57 @@ Civilizacion* VideoGame::buscar(const Civilizacion &c){
 size_t VideoGame::Total(){
     return total;
 }
+
+void VideoGame::respaldar()
+{
+    ofstream archivo("civilizaciones.txt", ios::out);
+
+    for (int i = 0; i < civilizaciones.size(); ++i) {
+        Civilizacion &c = civilizaciones[i];
+        archivo << c.getNombre() << endl;
+        c.respaldar_aldeanos();
+        archivo << c.getUbicacionX() << endl;
+        archivo << c.getUbicacionY() << endl;
+        archivo << c.getPuntuacion() << endl;
+    }
+    archivo.close();
+}
+
+void VideoGame::recuperar(){
+    ifstream archivo("civilizaciones.txt");
+    if(archivo.is_open()){
+        string temp;
+        string aux;
+        double ubicacion;
+        float puntuacion;
+        
+        while(true){
+            
+            Civilizacion c;
+
+            getline(archivo,temp);//nombre
+            if(archivo.eof()){ break;}
+            c.setNombre(temp);
+            aux = temp + ".txt";
+            c.recuperar_aldeanos(aux);
+
+            getline(archivo,temp);//ubicacionX
+            ubicacion = stod(temp);
+            c.setUbicacionX(ubicacion);
+
+            getline(archivo,temp);//ubicacionY
+            ubicacion = stod(temp);
+            c.setUbicacionY(ubicacion);
+
+            getline(archivo,temp);//puntuacion
+            puntuacion = stof(temp);
+            c.setPuntuacion(puntuacion);
+
+            agregar(c);
+            aux = "";
+        }
+
+    }
+    archivo.close();
+
+}

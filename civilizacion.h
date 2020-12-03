@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include <list>
 #include "aldeano.h"
 
@@ -50,6 +51,10 @@ public:
     void ordenarSalud();
 
     Aldeano* buscar(const Aldeano &c);
+
+    void respaldar_aldeanos();
+    void recuperar_aldeanos(string civ);
+    
 
     friend ostream& operator <<(ostream &out, const Civilizacion &c){
         out<< left;
